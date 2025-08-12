@@ -12,6 +12,11 @@ int main(){
     cin.getline(str,100);
 
     int j=0;
+    for(int i=0;str[i]!='\0';i++){
+        if(!vowel(str[i])){
+            result[j++] = str[i];
+        }
+    }
     result[j] = '\0';
     cout<<"String without vowels: "<<result;
     return 0;

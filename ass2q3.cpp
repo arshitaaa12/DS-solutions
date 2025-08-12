@@ -3,11 +3,11 @@ using namespace std;
 
 int missing(int arr[], int n) {
     for(int i = 0; i < n; i++) {
-        if(arr[i] != i) {
-            return i;
+        if(arr[i]-i != 1) {
+            return arr[i]-1;
         }
     }
-    return n;
+    return -1;
 }
 
 int main() {
