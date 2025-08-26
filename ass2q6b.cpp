@@ -25,13 +25,13 @@ void multiply(Triplet A[], Triplet B[], Triplet C[]){
     C[0].col = p;
     C[0].val = 0;
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < p; j++) {
+    for (int i=0;i<m;i++) {
+        for (int j=0;j<p;j++) {
             int sum = 0;
 
-            for (int x = 1; x <= A[0].val; x++) {
+            for (int x=1;x<=A[0].val;x++) {
                 if (A[x].row == i) {
-                    for (int y = 1; y <= B[0].val; y++) {
+                    for (int y=1;y<=B[0].val;y++) {
                         if (B[y].row == A[x].col && B[y].col == j) {
                             sum += A[x].val * B[y].val;
                         }
@@ -48,7 +48,7 @@ void multiply(Triplet A[], Triplet B[], Triplet C[]){
         }
     }
 
-    C[0].val = k - 1;
+    C[0].val = k-1;
 }
 
 int main() {
@@ -67,15 +67,15 @@ int main() {
 
     Triplet C[20];
 
-    cout << "Matrix A (Triplet): ";
+    cout<<"Matrix A(Triplet): "<<endl;
     print(A, A[0].val);
 
-    cout << "Matrix B (Triplet): ";
+    cout<<"Matrix B(Triplet): "<<endl;
     print(B, B[0].val);
 
     multiply(A, B, C);
 
-    cout << "A x B (Triplet): ";
+    cout<<"A x B(Triplet): "<<endl;
     print(C, C[0].val);
 
     return 0;
