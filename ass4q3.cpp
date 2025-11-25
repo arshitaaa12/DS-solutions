@@ -88,32 +88,32 @@ int main(){
     }
     cout<<endl;
 
-    Queue q;
+    Queue q1;
     cout<<"Enter elements: ";
     for(int i=0;i<n;i++){
         cin>>x;
-        q.enqueue(x);
+        q1.enqueue(x);
     }
 
     Queue firsthalf;
     int half = n/2;
     for(int i=0;i<half;i++){
-        firsthalf.enqueue(q.getFront());
-        q.dequeue();
+        firsthalf.enqueue(q1.getFront());
+        q1.dequeue();
     }
 
     while(!firsthalf.isEmpty()){
-        q.enqueue(firsthalf.getFront());
+        q1.enqueue(firsthalf.getFront());
         firsthalf.dequeue();
 
-        q.enqueue(q.getFront());
-        q.dequeue();
+        q1.enqueue(q1.getFront());
+        q1.dequeue();
     }
 
     cout<<"Interleaved queue: ";
-    while(!q.isEmpty()){
-        cout<<q.getFront()<<" ";
-        q.dequeue();
+    while(!q1.isEmpty()){
+        cout<<q1.getFront()<<" ";
+        q1.dequeue();
     }
     cout<<endl;
     return 0;

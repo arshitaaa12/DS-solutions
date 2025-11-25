@@ -2,19 +2,20 @@
 #include<stack>
 using namespace std;
 
-bool isBalanced(string expr) {
+bool isBalanced(string expr){
     stack<char> s;
 
-    for (char c : expr) {
-        if (c == '(' || c == '{' || c == '[') {
+    for(char c : expr){
+        if (c == '(' || c == '{' || c == '['){
             s.push(c);
         }
-        else if (c == ')' || c == '}' || c == ']') {
-            if (s.empty()) return false;
-            char top = s.top(); s.pop();
-            if ((c == ')' && top != '(') ||
+        else if(c == ')' || c == '}' || c == ']'){
+            if(s.empty()) return false;
+            char top = s.top();
+            s.pop();
+            if((c == ')' && top != '(') ||
                 (c == '}' && top != '{') ||
-                (c == ']' && top != '[')) {
+                (c == ']' && top != '[')){
                 return false;
             }
         }
@@ -22,15 +23,15 @@ bool isBalanced(string expr) {
     return s.empty();
 }
 
-int main() {
+int main(){
     string expression;
-    cout << "Enter expression: ";
-    cin >> expression;
+    cout<<"Enter expression: ";
+    cin>>expression;
 
-    if (isBalanced(expression))
-        cout << "Balanced\n";
+    if(isBalanced(expression))
+        cout<<"Balanced\n";
     else
-        cout << "Not Balanced\n";
+        cout<<"Not Balanced\n";
 
     return 0;
 }

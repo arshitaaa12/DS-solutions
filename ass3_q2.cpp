@@ -12,7 +12,8 @@ public:
         if(top == MAX- 1){ 
             cout<<"Stack overflow"<<endl; 
             return; 
-        } arr[++top] = c; 
+        }
+        arr[++top] = c; 
     } 
     char pop(){ 
         if(top == -1){ 

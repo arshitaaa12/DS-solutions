@@ -11,45 +11,57 @@ void insert(Node*& head, int a){
         head = newNode;
     } else{
         Node* temp = head;
-        while(temp->next){
+        while(temp->next != NULL){
             temp = temp->next;
         }
         temp->next = newNode;
     }
 }
 
-void reverse(Node*& head){
-    Node *prev = NULL;
-    Node *curr = head;
-    Node *next = NULL;
-    while(curr){
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
+int deletekey(Node* head, int key){
+    int count = 0;
+    while(head && head->data == key){
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        count++;
     }
-    head = prev;
-}
 
+    Node* curr = head;
+    while(curr && curr->next){
+        if(curr->next->data == key){
+        Node* temp = curr->next;
+        curr->next = temp->next;
+        delete temp;
+        count++;
+        } else{
+        curr = curr->next;
+        }
+    }
+    return count;
+}
 void display(Node* head) {
-    while(head){
-        cout<<head->data<<"->";
+    while (head) {
+        cout << head->data << "->";
         head = head->next;
     }
+    cout << "NULL\n";
 }
 
 int main(){
     Node* head = NULL;
-    int n, a;
+    int n, a, key;
     cout<<"Enter number of elements: ";
     cin>>n;
-    for(int i=0;i<n;i++){
+    cout<<"Enter elements: ";
+    for (int i=0;i<n;i++){
         cin>>a;
         insert(head, a);
     }
-    cout<<"Original: ";
-    display(head);
-    reverse(head);
-    cout<<"Reversed: ";
+    cout<<"Enter key: ";
+    cin>>key;
+    int count = deletekey(head, key);
+    cout<<"Count: "<<count<<endl;
+    cout<<"Updated Linked List: ";
     display(head);
 }

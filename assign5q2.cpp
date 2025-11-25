@@ -18,7 +18,7 @@ void insert(Node*& head, int a){
     }
 }
 
-int deletekey(Node* head, int key){
+int deletekey(Node*& head, int key){
     int count = 0;
     while(head && head->data == key){
         Node* temp = head;
